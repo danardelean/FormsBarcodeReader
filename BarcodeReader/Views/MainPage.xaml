@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="BarcodeReader.Views.MainPage"
+    xmlns:vm="clr-namespace:BarcodeReader.ViewModels"
+    xmlns:resources="clr-namespace:BarcodeReader.Resx"
+    x:DataType="vm:MainViewModel"
+    Title="{Binding Title}"
+   >
+    <StackLayout VerticalOptions="Center"  Padding="{StaticResource appPadding}">
+        <Label Text="{x:Static resources:AppResources.MainPage_LabelBarcodeCode}"/>
+        <Entry Text="{Binding BarcodeValue}"
+               IsReadOnly="True"
+               TextColor="{StaticResource Primary}"
+               Placeholder="{x:Static resources:AppResources.MainPage_EntryBarcodeValue_Placeholder}"/>
+
+          <Label  Margin="{StaticResource verticalMargin}"
+                  Text="{x:Static resources:AppResources.MainPage_LabelBarcodeType}"/>
+        <Entry Text="{Binding BarcodeType}"
+               IsReadOnly="True"
+               TextColor="{StaticResource Primary}"
+               Placeholder="{x:Static resources:AppResources.MainPage_EntryBarcodeType_Placeholder}"/>
+
+
+        <Button HorizontalOptions="Center"
+                Margin="{StaticResource verticalMargin}"
+                Text="{x:Static resources:AppResources.MainPage_ButtonReadBarcode}"
+                Command="{Binding CommandReadBarcode}"/>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="BarcodeReader.Views.BarcodePage"
+    xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+    xmlns:vm="clr-namespace:BarcodeReader.ViewModels"
+       xmlns:resources="clr-namespace:BarcodeReader.Resx"
+    x:DataType="vm:BarcodeViewModel"
+    Shell.PresentationMode="ModalAnimated">
+    <Grid>
+        <zxing:ZXingScannerView x:Name="scannerView"
+                    IsScanning="{Binding IsScanning}" 
+                    ScanResultCommand="{Binding CommandScannedBarcode}" />
+        <zxing:ZXingDefaultOverlay
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand" 
+                x:Name="scannerOverlay"
+                ShowFlashButton="{Binding HasTorch,Source={x:Reference scannerView}}"
+                BottomText="{x:Static resources:AppResources.BarcodePage_Scanner_BottomText}"/>
+    </Grid>
+</ContentPage>
