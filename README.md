@@ -1,2 +1,2 @@
 # FormsBarcodeReader
-Xamarin.Forms 5.0 with Shell sample for Barcode reading
+Barcode reading sample application developed with Xamarin.Forms 5.0 and Shell 
